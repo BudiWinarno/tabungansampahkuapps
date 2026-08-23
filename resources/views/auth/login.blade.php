@@ -1,47 +1,195 @@
 <x-guest-layout>
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
 
-    <form method="POST" action="{{ route('login') }}">
-        @csrf
+    <div class="login-page">
 
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+        <!-- BRAND -->
+        <div class="login-brand">
+            <h1>TabunganSampahku</h1>
+            <p>Masuk ke akun Anda</p>
         </div>
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+        <!-- LOGIN CARD -->
+        <div class="login-card">
 
-            <x-text-input id="password" class="block mt-1 w-full"
+            <x-auth-session-status
+                class="login-status"
+                :status="session('status')"
+            />
+
+            <form method="POST" action="{{ route('login') }}">
+                @csrf
+
+                <!-- EMAIL -->
+                <div class="login-field">
+
+                    <label for="email">
+                        EMAIL
+                    </label>
+
+                    <div class="login-input-wrapper">
+
+                        <span class="login-input-icon">
+                            <i class="bi bi-envelope"></i>
+                        </span>
+
+                        <input
+                            id="email"
+                            type="email"
+                            name="email"
+                            value="{{ old('email') }}"
+                            placeholder="nama@email.com"
+                            required
+                            autofocus
+                            autocomplete="username"
+                        >
+
+                    </div>
+
+                    <x-input-error
+                        :messages="$errors->get('email')"
+                        class="login-error"
+                    />
+
+                </div>
+
+
+                <!-- PASSWORD -->
+                <div class="login-field">
+
+                    <label for="password">
+                        PASSWORD
+                    </label>
+
+                    <div class="login-input-wrapper">
+
+                        <span class="login-input-icon">
+                            <i class="bi bi-lock"></i>
+                        </span>
+
+                        <input
+                            id="password"
                             type="password"
                             name="password"
-                            required autocomplete="current-password" />
+                            placeholder="••••••••"
+                            required
+                            autocomplete="current-password"
+                        >
 
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            onclick="togglePassword()"
+                            aria-label="Tampilkan password"
+                        >
+                            <i id="password-eye" class="bi bi-eye"></i>
+                        </button>
+
+                    </div>
+
+                    <x-input-error
+                        :messages="$errors->get('password')"
+                        class="login-error"
+                    />
+
+                </div>
+
+
+                <!-- REMEMBER + FORGOT -->
+                <div class="login-options">
+
+                    <label class="remember-wrapper">
+
+                        <input
+                            id="remember_me"
+                            type="checkbox"
+                            name="remember"
+                        >
+
+                        <span>Ingat saya</span>
+
+                    </label>
+
+
+                    @if (Route::has('password.request'))
+
+                        <a
+                            href="{{ route('password.request') }}"
+                            class="forgot-password"
+                        >
+                            Lupa password?
+                        </a>
+
+                    @endif
+
+                </div>
+
+
+                <!-- LOGIN BUTTON -->
+                <button type="submit" class="login-submit">
+                    Masuk
+                </button>
+
+            </form>
+
+
+            <!-- REGISTER -->
+            <div class="login-register">
+
+                <span>Belum punya akun?</span>
+
+                @if (Route::has('register'))
+
+                    <a href="{{ route('register') }}">
+                        Daftar sekarang
+                    </a>
+
+                @endif
+
+            </div>
+
+
+            <!-- BACK -->
+            <a
+                href="{{ route('index') }}"
+                class="back-home"
+            >
+                <i class="bi bi-chevron-left"></i>
+                Kembali ke Beranda
+            </a>
+
         </div>
 
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-indigo-600 shadow-sm focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800" name="remember">
-                <span class="ms-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Remember me') }}</span>
-            </label>
+
+        <!-- FOOTER -->
+        <div class="login-footer">
+            © Yayasan Peduli Lingkungan Sehat
         </div>
 
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
-            @endif
+    </div>
 
-            <x-primary-button class="ms-3">
-                {{ __('Log in') }}
-            </x-primary-button>
-        </div>
-    </form>
+
+    <script>
+        function togglePassword() {
+
+            const password = document.getElementById('password');
+            const eye = document.getElementById('password-eye');
+
+            if (password.type === 'password') {
+
+                password.type = 'text';
+
+                eye.classList.remove('bi-eye');
+                eye.classList.add('bi-eye-slash');
+
+            } else {
+
+                password.type = 'password';
+
+                eye.classList.remove('bi-eye-slash');
+                eye.classList.add('bi-eye');
+
+            }
+        }
+    </script>
+
 </x-guest-layout>

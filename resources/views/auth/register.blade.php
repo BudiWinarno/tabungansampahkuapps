@@ -1,52 +1,159 @@
 <x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
-        @csrf
 
-        <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+    <div class="register-page">
+
+        <!-- BRAND -->
+        <div class="register-brand">
+            <h1>TabunganSampahku</h1>
+            <p>Buat akun baru Anda</p>
         </div>
 
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
+        <!-- REGISTER CARD -->
+        <div class="register-card">
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+            <form method="POST" action="{{ route('register') }}">
+                @csrf
 
-            <x-text-input id="password" class="block mt-1 w-full"
+                <!-- NAME -->
+                <div class="register-field">
+                    <label for="name">NAMA</label>
+
+                    <div class="register-input-wrapper">
+                        <span class="register-input-icon">
+                            <i class="bi bi-person"></i>
+                        </span>
+
+                        <input
+                            id="name"
+                            type="text"
+                            name="name"
+                            value="{{ old('name') }}"
+                            placeholder="Nama lengkap"
+                            required
+                            autofocus
+                            autocomplete="name"
+                        >
+                    </div>
+
+                    <x-input-error
+                        :messages="$errors->get('name')"
+                        class="register-error"
+                    />
+                </div>
+
+                <!-- EMAIL -->
+                <div class="register-field">
+                    <label for="email">EMAIL</label>
+
+                    <div class="register-input-wrapper">
+                        <span class="register-input-icon">
+                            <i class="bi bi-envelope"></i>
+                        </span>
+
+                        <input
+                            id="email"
+                            type="email"
+                            name="email"
+                            value="{{ old('email') }}"
+                            placeholder="nama@email.com"
+                            required
+                            autocomplete="username"
+                        >
+                    </div>
+
+                    <x-input-error
+                        :messages="$errors->get('email')"
+                        class="register-error"
+                    />
+                </div>
+
+                <!-- PASSWORD -->
+                <div class="register-field">
+                    <label for="password">PASSWORD</label>
+
+                    <div class="register-input-wrapper">
+                        <span class="register-input-icon">
+                            <i class="bi bi-lock"></i>
+                        </span>
+
+                        <input
+                            id="password"
                             type="password"
                             name="password"
-                            required autocomplete="new-password" />
+                            placeholder="••••••••"
+                            required
+                            autocomplete="new-password"
+                        >
+                    </div>
 
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
+                    <x-input-error
+                        :messages="$errors->get('password')"
+                        class="register-error"
+                    />
+                </div>
 
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+                <!-- CONFIRM PASSWORD -->
+                <div class="register-field">
+                    <label for="password_confirmation">
+                        KONFIRMASI PASSWORD
+                    </label>
 
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
+                    <div class="register-input-wrapper">
+                        <span class="register-input-icon">
+                            <i class="bi bi-shield-lock"></i>
+                        </span>
+
+                        <input
+                            id="password_confirmation"
                             type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
+                            name="password_confirmation"
+                            placeholder="••••••••"
+                            required
+                            autocomplete="new-password"
+                        >
+                    </div>
 
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
+                    <x-input-error
+                        :messages="$errors->get('password_confirmation')"
+                        class="register-error"
+                    />
+                </div>
 
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
+                <!-- REGISTER BUTTON -->
+                <button
+                    type="submit"
+                    class="register-submit"
+                >
+                    Daftar
+                </button>
+
+            </form>
+
+            <!-- LOGIN -->
+            <div class="register-login">
+                <span>Sudah punya akun?</span>
+
+                <a href="{{ route('login') }}">
+                    Masuk sekarang
+                </a>
+            </div>
+
+            <!-- BACK -->
+            <a
+                href="{{ route('index') }}"
+                class="register-back"
+            >
+                <i class="bi bi-chevron-left"></i>
+                Kembali ke Beranda
             </a>
 
-            <x-primary-button class="ms-4">
-                {{ __('Register') }}
-            </x-primary-button>
         </div>
-    </form>
+
+        <!-- FOOTER -->
+        <div class="register-footer">
+            © Yayasan Peduli Lingkungan Sehat
+        </div>
+
+    </div>
+
 </x-guest-layout>

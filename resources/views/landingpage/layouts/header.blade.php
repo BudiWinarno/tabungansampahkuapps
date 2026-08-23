@@ -3,7 +3,7 @@
         <div class="container header-container">
 
             <!-- LOGO -->
-            <a class="navbar-brand site-logo" href="#">
+            <a class="navbar-brand site-logo" href="{{ route('index') }}">
                 TabunganSampahku
             </a>
 
@@ -25,25 +25,29 @@
                 <ul class="navbar-nav main-menu">
 
                     <li class="nav-item">
-                        <a class="nav-link active" href="{{ route('index') }}">
+                        <a class="nav-link {{ request()->routeIs('index') ? 'active' : '' }}"
+                           href="{{ route('index') }}">
                             Beranda
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('tentangkami') }}">
+                        <a class="nav-link {{ request()->routeIs('tentangkami') ? 'active' : '' }}"
+                           href="{{ route('tentangkami') }}">
                             Tentang Kami
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('lokasibanksampah') }}">
+                        <a class="nav-link {{ request()->routeIs('lokasibanksampah') ? 'active' : '' }}"
+                           href="{{ route('lokasibanksampah') }}">
                             Lokasi Bank Sampah
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('artikelberita') }}">
+                        <a class="nav-link {{ request()->routeIs('artikelberita') ? 'active' : '' }}"
+                           href="{{ route('artikelberita') }}">
                             Artikel & Berita
                         </a>
                     </li>
@@ -52,7 +56,6 @@
 
                 <!-- LOGIN -->
                 <a href="/login" class="login-button">
-                    {{-- <span class="login-icon">↪</span> --}}
                     Login
                 </a>
 

@@ -4,9 +4,36 @@
 
 @section('content')
 
-    <h1>Artikel Berita</h1>
+<section class="artikel-section">
 
-    <footer class="footer">
-        <p>© Yayasan Peduli Lingkungan Sehat</p>
-    </footer>
+    <div class="artikel-content">
+
+        <h1>Artikel & Berita Terkini</h1>
+
+        <p>
+            Temukan informasi, tips, dan berita terbaru seputar lingkungan hidup dan
+            <br class="artikel-break">
+            pengelolaan sampah.
+        </p>
+
+        <form class="artikel-search" action="#" method="GET">
+
+            <i class="bi bi-search"></i>
+
+            <input
+                type="text"
+                name="search"
+                placeholder="Cari artikel..."
+            >
+
+            <button type="submit">
+                Cari
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
 @endsection

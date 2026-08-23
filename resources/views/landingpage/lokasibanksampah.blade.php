@@ -4,9 +4,29 @@
 
 @section('content')
 
-    <h1>Lokasi Bank Sampah</h1>
+<section class="lokasi-section">
 
-    <footer class="footer">
-        <p>© Yayasan Peduli Lingkungan Sehat</p>
-    </footer>
+    <div class="lokasi-content">
+
+        <h1>Lokasi Bank Sampah</h1>
+
+        <p>
+            Temukan lokasi Bank Sampah terdekat dari Anda.
+        </p>
+
+        <div class="lokasi-search">
+
+            <i class="bi bi-search"></i>
+
+            <input
+                type="text"
+                placeholder="Cari berdasarkan nama atau alamat..."
+            >
+
+        </div>
+
+    </div>
+
+</section>
+
 @endsection
