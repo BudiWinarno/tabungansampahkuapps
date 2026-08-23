@@ -535,3 +535,459 @@
     }
 
 }
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero-section2 {
+    position: relative;
+    min-height: 500px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    background-color: #176b2b;
+
+    /* Pattern hexagon */
+    background-image:
+        linear-gradient(
+            30deg,
+            rgba(255, 255, 255, 0.025) 12%,
+            transparent 12.5%,
+            transparent 87%,
+            rgba(255, 255, 255, 0.025) 87.5%,
+            rgba(255, 255, 255, 0.025)
+        ),
+        linear-gradient(
+            150deg,
+            rgba(255, 255, 255, 0.025) 12%,
+            transparent 12.5%,
+            transparent 87%,
+            rgba(255, 255, 255, 0.025) 87.5%,
+            rgba(255, 255, 255, 0.025)
+        ),
+        linear-gradient(
+            30deg,
+            rgba(255, 255, 255, 0.025) 12%,
+            transparent 12.5%,
+            transparent 87%,
+            rgba(255, 255, 255, 0.025) 87.5%,
+            rgba(255, 255, 255, 0.025)
+        );
+
+    background-size: 80px 140px;
+    background-position: 0 0, 0 0, 40px 70px;
+}
+
+.hero-content {
+    width: 100%;
+    max-width: 900px;
+
+    margin: 0 auto;
+    padding: 80px 20px;
+
+    text-align: center;
+}
+
+
+/* =========================
+   BADGE
+========================= */
+
+.hero-badge {
+    display: inline-flex;
+
+    align-items: center;
+    gap: 8px;
+
+    padding: 9px 17px;
+
+    margin-bottom: 28px;
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 50px;
+
+    background: rgba(255, 255, 255, 0.10);
+
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.badge-dot {
+    width: 8px;
+    height: 8px;
+
+    display: inline-block;
+
+    border-radius: 50%;
+
+    background-color: #5ed477;
+
+    box-shadow: 0 0 8px rgba(94, 212, 119, 0.7);
+}
+
+
+/* =========================
+   TITLE
+========================= */
+
+.hero-content h1 {
+    margin: 0 auto 20px;
+
+    color: #ffffff;
+
+    font-size: 58px;
+    line-height: 1.04;
+
+    font-weight: 800;
+    letter-spacing: -1.8px;
+}
+
+.hero-content h1 span {
+    color: #b8dfbc;
+}
+
+
+/* =========================
+   DESCRIPTION
+========================= */
+
+.hero-content > p {
+    max-width: 650px;
+
+    margin: 0 auto;
+
+    color: #ffffff;
+
+    font-size: 19px;
+    line-height: 1.5;
+
+    font-weight: 600;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    padding: 25px 20px;
+
+    text-align: center;
+
+    background-color: #0f4f20;
+
+    color: rgba(255, 255, 255, 0.8);
+
+    font-size: 14px;
+}
+
+.footer p {
+    margin: 0;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+    .hero-section {
+        min-height: 450px;
+    }
+
+    .hero-content {
+        padding: 60px 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 40px;
+        letter-spacing: -1px;
+    }
+
+    .hero-content > p {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    .hero-badge {
+        font-size: 13px;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .hero-content h1 {
+        font-size: 32px;
+    }
+
+    .hero-content > p {
+        font-size: 15px;
+    }
+}
+
+/* ========================================
+   ABOUT SECTION
+======================================== */
+
+.about-section {
+    background: #f7f9fb;
+    padding: 45px 32px 55px;
+}
+
+
+/* ========================================
+   ABOUT CARD
+======================================== */
+
+.about-card {
+    max-width: 1100px;
+    margin: 0 auto 42px;
+
+    padding: 30px 32px 36px;
+
+    background: #ffffff;
+
+    border: 1px solid #edf1f5;
+    border-radius: 25px;
+
+    box-shadow: 0 12px 30px rgba(25, 55, 80, 0.06);
+}
+
+
+/* ========================================
+   TITLE
+======================================== */
+
+.about-title {
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+
+    margin-bottom: 22px;
+}
+
+.about-title span {
+    display: block;
+
+    width: 32px;
+    height: 3px;
+
+    border-radius: 10px;
+
+    background: #2e8b45;
+}
+
+.about-title h1 {
+    margin: 0;
+
+    color: #1d2939;
+
+    font-size: 21px;
+    font-weight: 800;
+
+    line-height: 1.2;
+}
+
+
+/* ========================================
+   DESCRIPTION
+======================================== */
+
+.about-card p {
+    margin: 0 0 18px;
+
+    color: #667085;
+
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.about-card p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* ========================================
+   FEATURE CARDS
+======================================== */
+
+.about-features {
+    max-width: 1100px;
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 24px;
+}
+
+
+/* ========================================
+   FEATURE CARD
+======================================== */
+
+.about-feature-card {
+    min-height: 180px;
+
+    padding: 22px 20px 20px;
+
+    background: #ffffff;
+
+    border: 1px solid #edf1f5;
+    border-radius: 16px;
+
+    text-align: center;
+
+    box-shadow: 0 10px 25px rgba(25, 55, 80, 0.05);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.about-feature-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow: 0 14px 30px rgba(25, 55, 80, 0.09);
+}
+
+
+/* ========================================
+   ICON
+======================================== */
+
+.feature-icon {
+    width: 44px;
+    height: 44px;
+
+    margin: 0 auto 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    font-size: 21px;
+}
+
+
+/* Green */
+
+.feature-icon-green {
+    color: #12b76a;
+
+    background: #edfff5;
+
+    border: 1px solid #d4f7e4;
+}
+
+
+/* Blue */
+
+.feature-icon-blue {
+    color: #3b82f6;
+
+    background: #eff6ff;
+
+    border: 1px solid #dbeafe;
+}
+
+
+/* Purple */
+
+.feature-icon-purple {
+    color: #9747ff;
+
+    background: #faf2ff;
+
+    border: 1px solid #ead7ff;
+}
+
+
+/* ========================================
+   CARD TITLE
+======================================== */
+
+.about-feature-card h3 {
+    margin: 0 0 10px;
+
+    color: #1d2939;
+
+    font-size: 16px;
+    font-weight: 800;
+}
+
+
+/* ========================================
+   CARD DESCRIPTION
+======================================== */
+
+.about-feature-card p {
+    max-width: 180px;
+
+    margin: 0 auto;
+
+    color: #667085;
+
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 768px) {
+
+    .about-section {
+        padding: 35px 18px 45px;
+    }
+
+    .about-card {
+        padding: 25px 22px 28px;
+
+        border-radius: 20px;
+    }
+
+    .about-features {
+        grid-template-columns: 1fr;
+
+        gap: 16px;
+    }
+
+    .about-feature-card {
+        min-height: auto;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .about-section {
+        padding: 25px 12px 35px;
+    }
+
+    .about-card {
+        padding: 22px 18px;
+    }
+
+    .about-card p {
+        font-size: 12px;
+        line-height: 1.7;
+    }
+
+}

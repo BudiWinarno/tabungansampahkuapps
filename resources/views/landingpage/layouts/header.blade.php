@@ -25,25 +25,25 @@
                 <ul class="navbar-nav main-menu">
 
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">
+                        <a class="nav-link active" href="{{ route('index') }}">
                             Beranda
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{ route('tentangkami') }}">
                             Tentang Kami
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{ route('lokasibanksampah') }}">
                             Lokasi Bank Sampah
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{ route('artikelberita') }}">
                             Artikel & Berita
                         </a>
                     </li>
@@ -51,7 +51,7 @@
                 </ul>
 
                 <!-- LOGIN -->
-                <a href="#" class="login-button">
+                <a href="/login" class="login-button">
                     {{-- <span class="login-icon">↪</span> --}}
                     Login
                 </a>
