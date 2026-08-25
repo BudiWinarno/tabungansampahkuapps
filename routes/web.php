@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\JenissampahController;
 use App\Http\Controllers\LandingpageController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -19,4 +20,37 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+Route::middleware(['auth'])->group(function () {
+
+    Route::get(
+        '/master-data/jenis-sampah',
+        [JenissampahController::class, 'index']
+    )->name('jenis-sampah.index');
+
+    Route::get(
+        '/master-data/jenis-sampah/create',
+        [JenissampahController::class, 'create']
+    )->name('jenis-sampah.create');
+
+    Route::post(
+        '/master-data/jenis-sampah',
+        [JenissampahController::class, 'store']
+    )->name('jenis-sampah.store');
+
+    Route::delete(
+        '/master-data/jenis-sampah/{jenisSampah}',
+        [JenissampahController::class, 'destroy']
+    )->name('jenis-sampah.destroy');
+
+    Route::get(
+        '/master-data/jenis-sampah/{jenisSampah}/edit',
+        [JenissampahController::class, 'edit']
+    )->name('jenis-sampah.edit');
+
+    Route::put(
+        '/master-data/jenis-sampah/{jenisSampah}',
+        [JenissampahController::class, 'update']
+    )->name('jenis-sampah.update');
+});
+
+require __DIR__ . '/auth.php';
