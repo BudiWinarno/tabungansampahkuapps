@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
 
     <style>
         * {
@@ -549,9 +549,13 @@
                     <span class="menu-arrow">›</span>
                 </a>
 
-                <a href="#" class="menu-item">
+                <a href="{{ route('management-pengguna.index') }}"
+                    class="menu-item {{ request()->routeIs('management-pengguna.*') ? 'active' : '' }}">
+
                     <span class="menu-icon">♧</span>
+
                     <span>Manajemen Pengguna</span>
+
                 </a>
 
                 <a href="{{ route('profile.edit') }}" class="menu-item">

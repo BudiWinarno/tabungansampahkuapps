@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\JenissampahController;
 use App\Http\Controllers\LandingpageController;
+use App\Http\Controllers\ManagementpenggunaController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -51,6 +52,22 @@ Route::middleware(['auth'])->group(function () {
         '/master-data/jenis-sampah/{jenisSampah}',
         [JenissampahController::class, 'update']
     )->name('jenis-sampah.update');
+
+    //Management Pengguna
+    Route::get(
+        '/management-pengguna',
+        [ManagementpenggunaController::class, 'index']
+    )->name('management-pengguna.index');
+
+    Route::get(
+        '/management-pengguna/create',
+        [ManagementpenggunaController::class, 'create']
+    )->name('management-pengguna.create');
+
+    Route::post(
+        '/management-pengguna/store',
+        [ManagementpenggunaController::class, 'store']
+    )->name('management-pengguna.store');
 });
 
 require __DIR__ . '/auth.php';

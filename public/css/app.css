@@ -3362,3 +3362,393 @@
         transform: scale(1) translateY(0);
     }
 }
+
+/* =====================================================
+   CREATE USER / ACCOUNT
+===================================================== */
+
+.user-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+}
+
+.user-form-column {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+/* =====================================================
+   USER ROLE
+===================================================== */
+
+.role-list {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+
+    padding: 8px;
+
+    background: #f8f9fc;
+    border: 1px solid #e6e9ef;
+    border-radius: 12px;
+}
+
+.role-option {
+    position: relative;
+
+    min-height: 39px;
+    padding: 0 12px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    background: #ffffff;
+    border: 1px solid #e3e7ec;
+    border-radius: 9px;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.role-option:hover {
+    border-color: #b8cbbb;
+}
+
+.role-option input {
+    width: 14px;
+    height: 14px;
+    margin: 0;
+    flex-shrink: 0;
+    accent-color: #2f7d3c;
+    cursor: pointer;
+}
+
+.role-checkbox {
+    width: 14px;
+    height: 14px;
+
+    flex-shrink: 0;
+
+    border: 1px solid #d5dce2;
+    border-radius: 4px;
+
+    background: #ffffff;
+
+    position: relative;
+}
+
+.role-option input:checked + .role-checkbox {
+    background: #2f7d3c;
+    border-color: #2f7d3c;
+}
+
+.role-option input:checked + .role-checkbox::after {
+    content: "✓";
+
+    position: absolute;
+
+    left: 2px;
+    top: -1px;
+
+    color: #ffffff;
+
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.role-name {
+    color: #27322b;
+
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.role-option.primary {
+    background: #f7fbf7;
+    border-color: #b8d5bd;
+}
+
+.primary-label {
+    margin-left: auto;
+
+    color: #39844a;
+
+    font-size: 7px;
+    font-weight: 800;
+
+    letter-spacing: 0.5px;
+}
+
+.form-helper {
+    display: block;
+
+    margin-top: 6px;
+
+    color: #9aa3ae;
+
+    font-size: 8px;
+}
+
+
+/* =====================================================
+   BIRTH DATE
+===================================================== */
+
+#birth_date {
+    color: #4a5362;
+}
+
+#birth_date::-webkit-calendar-picker-indicator {
+    opacity: 0.55;
+    cursor: pointer;
+}
+
+
+/* =====================================================
+   ACCOUNT STATUS
+===================================================== */
+
+.account-status {
+    min-height: 76px;
+
+    padding: 14px;
+
+    display: flex;
+    align-items: center;
+
+    background: #f7f9fa;
+
+    border-radius: 16px;
+}
+
+.status-icon {
+    width: 38px;
+    height: 38px;
+
+    margin-right: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    color: #299253;
+
+    font-size: 17px;
+
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.status-text {
+    display: flex;
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+.status-text strong {
+    color: #26332b;
+
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.status-text span {
+    color: #929b9a;
+
+    font-size: 8px;
+}
+
+
+/* =====================================================
+   SWITCH
+===================================================== */
+
+.switch {
+    position: relative;
+
+    width: 40px;
+    height: 24px;
+
+    margin-left: auto;
+
+    flex-shrink: 0;
+
+    cursor: pointer;
+}
+
+.switch input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: 30px;
+
+    background: #cbd2ce;
+
+    transition: 0.2s ease;
+}
+
+.slider::before {
+    content: "";
+
+    position: absolute;
+
+    width: 18px;
+    height: 18px;
+
+    left: 3px;
+    top: 3px;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+
+    transition: 0.2s ease;
+}
+
+.switch input:checked + .slider {
+    background: #20b47d;
+}
+
+.switch input:checked + .slider::before {
+    transform: translateX(16px);
+}
+
+
+/* =====================================================
+   USER FORM RESPONSIVE
+===================================================== */
+
+@media (max-width: 800px) {
+
+    .user-form-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .account-status {
+        margin-top: 5px;
+    }
+
+}
+
+/* =====================================================
+   USER STATUS
+===================================================== */
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+
+    padding: 5px 9px;
+
+    border-radius: 20px;
+
+    font-size: 7px;
+    font-weight: 800;
+    letter-spacing: 0.4px;
+}
+
+.status-badge.active {
+    background: #e8f8f0;
+    color: #159463;
+}
+
+.status-badge.inactive {
+    background: #fceced;
+    color: #c64b55;
+}
+
+.status-dot {
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+}
+
+.status-badge.active .status-dot {
+    background: #19b477;
+}
+
+.status-badge.inactive .status-dot {
+    background: #d9535d;
+}
+
+/* USER TABLE */
+.table-user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.table-user-avatar {
+    width: 31px;
+    height: 31px;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #edf5ef;
+    color: #477154;
+
+    font-size: 9px;
+    font-weight: 800;
+}
+
+.table-user-details {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.table-user-name {
+    color: #26322d !important;
+    font-size: 10px;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.table-user-roles {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.role-badge {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 3px 7px;
+    border-radius: 5px;
+
+    background: #eef1f4;
+    color: #65717c;
+
+    font-size: 6.5px;
+    font-weight: 800;
+    letter-spacing: 0.4px;
+    line-height: 1;
+}
