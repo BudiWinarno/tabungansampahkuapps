@@ -3,6 +3,7 @@
 use App\Http\Controllers\JenissampahController;
 use App\Http\Controllers\LandingpageController;
 use App\Http\Controllers\ManagementpenggunaController;
+use App\Http\Controllers\MasterBankController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -68,6 +69,57 @@ Route::middleware(['auth'])->group(function () {
         '/management-pengguna/store',
         [ManagementpenggunaController::class, 'store']
     )->name('management-pengguna.store');
+
+    Route::delete(
+        '/management-pengguna/{id}',
+        [ManagementpenggunaController::class, 'destroy']
+    )->name('management-pengguna.destroy');
+
+    Route::get(
+        '/management-pengguna/{id}/edit',
+        [ManagementpenggunaController::class, 'edit']
+    )->name('management-pengguna.edit');
+
+    Route::get(
+        '/management-pengguna/{id}/edit',
+        [ManagementpenggunaController::class, 'edit']
+    )->name('management-pengguna.edit');
+
+    Route::put(
+        '/management-pengguna/{id}',
+        [ManagementpenggunaController::class, 'update']
+    )->name('management-pengguna.update');
+
+    // Master Data Bank
+    Route::get(
+        '/master-data/bank',
+        [MasterBankController::class, 'index']
+    )->name('master-bank.index');
+
+    Route::get(
+        '/master-data/bank/create',
+        [MasterBankController::class, 'create']
+    )->name('master-bank.create');
+
+    Route::post(
+        '/master-data/bank/store',
+        [MasterBankController::class, 'store']
+    )->name('master-bank.store');
+
+    Route::get(
+        '/master-data/bank/{id}/edit',
+        [MasterBankController::class, 'edit']
+    )->name('master-bank.edit');
+
+    Route::put(
+        '/master-data/bank/{id}',
+        [MasterBankController::class, 'update']
+    )->name('master-bank.update');
+
+    Route::delete(
+        '/master-data/bank/{id}',
+        [MasterBankController::class, 'destroy']
+    )->name('master-bank.destroy');
 });
 
 require __DIR__ . '/auth.php';

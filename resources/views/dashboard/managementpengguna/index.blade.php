@@ -160,17 +160,16 @@
 
                                     <div class="action-buttons">
 
-                                        <a href="#" class="row-action edit">
-
+                                        <a href="{{ route('management-pengguna.edit', $item->id) }}"
+                                            class="row-action edit">
                                             Edit
-
                                         </a>
 
                                         <button type="button" class="row-action delete"
                                             onclick="openDeleteModal(
-                '{{ $item->id }}',
-                '{{ addslashes($item->nama) }}'
-            )">
+                                                '{{ $item->id }}',
+                                                '{{ addslashes($item->name) }}'
+                                            )">
                                             Delete
                                         </button>
 
@@ -319,7 +318,7 @@
 
             // Set URL delete
             deleteForm.action =
-                "{{ url('/master-data/jenis-sampah') }}/" + id;
+                "{{ url('/management-pengguna') }}/" + id;
 
             // Tampilkan modal
             modal.classList.add('show');
@@ -364,7 +363,7 @@
             </div>
 
             <h3>
-                Hapus Jenis Sampah?
+                Hapus Account?
             </h3>
 
             <p>
@@ -373,7 +372,7 @@
             </p>
 
             <span class="delete-warning">
-                Data yang dihapus tidak dapat dikembalikan.
+                Data account yang dihapus tidak dapat dikembalikan.
             </span>
 
 

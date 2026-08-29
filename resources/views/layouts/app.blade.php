@@ -526,7 +526,7 @@
                             <span>Mitra Bank Sampah</span>
                         </a>
 
-                        <a href="#" class="submenu-item">
+                        <a href="{{ route('master-bank.index') }}" class="submenu-item">
                             <span class="submenu-icon">▣</span>
                             <span>Bank</span>
                         </a>

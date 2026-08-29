@@ -5,17 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ManagementPengguna extends Model
+class MasterBank extends Model
 {
     use HasFactory;
 
-    protected $table = 'users';
+    protected $table = 'master_banks';
 
     protected $fillable = [
-        'name',
-        'email',
-        'password',
-        'role',
-        'is_active'
+        'kode',
+        'nama',
+        'deskripsi'
     ];
 }
